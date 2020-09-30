@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Guard Management</title>
+    <link rel="Stylesheet" type="text/css" href="style.css">
+    <script>
+    $(document).ready(function(){
+    console.log('inside');
+    $.ajax({
+    method:"GET",
+    url:"http://localhost:5000/guardList",
+    success:function(result){
+    },
+    error:function(e){
+    }
+    })
+   });
+
+
+    </script>
+</head>
+
+<body>
+<div class="head">
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+
+    </nav>
+</div>
+<div class="img">
+    <a href="guard_reg.html"><img id="logo" src="logo.png" width="100px" height="70px"></a>
+</div>
+<div class="border">
+</div>
+<div class="frame">
+    <table>
+        <thead>
+        <tr>
+            <th id="tn">Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="guardTable">
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

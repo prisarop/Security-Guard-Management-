@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Guard Registration</title>
+    <link rel="Stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="head">
+
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </nav>
+</div>
+<div class="border">
+    </div>
+
+<p id="p1">Edit Information</p>
+<div class="Reg">
+<form>
+    <ul id="l1">
+        <li>First Name</li>
+        <li><input type="text" placeholder="Enter here" id="ip1"></li>
+        <li>Email</li>
+        <li><input type="text" id="ip3"></li>
+        <li>Birthday</li>
+        <li><input type="date" placeholder="dd/mm/yyyy" min="01-01-1900" id="ip5"></li>
+        <li>Create Password</li>
+        <li><input type="text" id="ip7"></li>
+    </ul>
+
+    <ul id="l2">
+        <li>Last Name</li>
+        <li><input type="text" id="ip2"></li>
+        <li>Contact</li>
+        <li><input type="text" id="ip4"></li>
+        <li>Gender</li>
+        <li><select id="s6"><option value="0">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select></li>
+        <li>Confirm Password</li>
+        <li><input type="password" id="ip8"></li>
+    </ul>
+    <input type="button" value="Submit" id="b1">
+    <p id="res">Registered Successfully</p>
+</form>
+</div>
+
+</body>
+<script>
+    $(document).ready(function(){
+    $("#b1").click(function(){
+    alert($("#s6").val())
+    $.ajax({
+    method:"post",
+    url:"localhost:5000/guard_registration",
+    data:"fname="+$("ip1").val()+"&lname="+$("#ip2").val()+"&email="+$("#ip3").val()+"&phone="+$("ip4").val()+"&dob="+$("ip5").val()+
+    "&gender="+$("#s6").val()+"&pass1="+$("#ip7").val()+"pass2="+$("#ip8").val(),
+    success:function(result){
+    $("#res").text(result)
+    },
+    error:function(e){
+    }
+    })
+    });
+    });
+</script>
+
+</html>
